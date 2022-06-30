@@ -2,8 +2,8 @@
 const PokemonModel = require("../models/pokemons");
 
 module.exports = (app) => {
-  app.put("/api/pokemons/:id", (req, res) => {
-    PokemonModel.findOneAndUpdate({ id: req.params.id }, req.body, {
+  app.put("/api/pokemons/:name", (req, res) => {
+    PokemonModel.findOneAndUpdate({ name: req.params.name }, req.body, {
       new: true,
     })
       .then((pokemon) => {

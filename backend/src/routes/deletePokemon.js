@@ -1,10 +1,11 @@
 const PokemonModel = require("../models/pokemons");
 
 module.exports = (app) => {
-  app.delete("/api/pokemons/:id", (req, res) => {
-    PokemonModel.findOneAndDelete({ id: req.params.id })
+  app.delete("/api/pokemons/:name", (req, res) => {
+    PokemonModel.findOneAndDelete({ name: req.params.name })
       .then((pokemon) => {
-        res.json(pokemon);
+        const message = `${pokemon.name} was deleted`;
+        res.json({ message: message, pokemon });
       })
       .catch((err) => {
         res.json(err);

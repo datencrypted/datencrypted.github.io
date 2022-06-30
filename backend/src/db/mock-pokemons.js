@@ -11,7 +11,7 @@ const pokemons = [
   },
   {
     id: 2,
-    name: "Salamèche",
+    name: "Salameche",
     hp: 28,
     cp: 6,
     picture:
