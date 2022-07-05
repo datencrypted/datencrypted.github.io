@@ -1,4 +1,4 @@
-const PokemonModel = require("../models/pokemons");
+const PokemonModel = require("../models/pokedexModel");
 
 module.exports = (app) => {
   app.get("/api/pokedex", (req, res) => {

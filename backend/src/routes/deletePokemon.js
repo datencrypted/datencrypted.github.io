@@ -1,4 +1,4 @@
-const PokemonModel = require("../models/pokemons");
+const PokemonModel = require("../models/pokedexModel");
 
 module.exports = (app) => {
   app.delete("/api/pokemons/:name", (req, res) => {

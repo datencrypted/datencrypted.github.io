@@ -1,4 +1,4 @@
-const Pokedex = require("../models/pokemons");
+const Pokedex = require("../models/pokedexModel");
 const Pokemons = require("../models/PokemonModels");
 const axios = require("axios");
 const { response } = require("express");

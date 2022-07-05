@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 //pokedex infos
-const PokedexModel = require("../models/pokemons");
+const PokedexModel = require("../models/pokedexModel");
 const mockPokemons = require("./mock-pokemons");
 
 //pokemon infos

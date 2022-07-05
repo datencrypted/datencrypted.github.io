@@ -8,14 +8,6 @@ const pokemonSchema = mongoose.Schema(
       type: String,
       require: false,
     },
-    hp: {
-      type: Number,
-      require: false,
-    },
-    cp: {
-      type: Number,
-      require: false,
-    },
     picture: {
       type: String,
       require: false,

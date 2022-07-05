@@ -1,5 +1,5 @@
 // update pokemon
-const PokemonModel = require("../models/pokemons");
+const PokemonModel = require("../models/pokedexModel");
 
 module.exports = (app) => {
   app.put("/api/pokemons/:name", (req, res) => {
