@@ -1,4 +1,4 @@
-const ApiModel = require("../models/ApiModel");
+const ApiModel = require("../models/PokemonsModel");
 axios = require("axios");
 
 // use axios to fetch data from pokeapi (id,name,hp,cp,picture,array types)
@@ -9,7 +9,7 @@ module.exports = (app) => {
         .get("https://pokeapi.co/api/v2/pokemon?limit=151")
         .then(async (response) => {
           const pokemons = await response.data.results;
-          for (let i = 1; i <= pokemons.length + 1; i++) {
+          for (let i = 1; i <= pokemons.length; i++) {
             await axios
               .get("https://pokeapi.co/api/v2/pokemon-species/" + [i] + "/")
               .then(async (response) => {

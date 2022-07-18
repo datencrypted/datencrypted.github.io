@@ -1,4 +1,4 @@
-const ApiModel = require("../models/ApiModel");
+const ApiModel = require("../models/PokemonsModel");
 // connect to mongodb and fetch one pokemon from url id
 module.exports = (app) => {
   // app is an express instance

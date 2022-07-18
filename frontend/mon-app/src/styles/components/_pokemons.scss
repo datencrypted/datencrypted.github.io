@@ -1,0 +1,46 @@
+  button {
+    display: flex;
+      margin: 0 auto 20px;
+      background: none;
+      border: 2px solid $color-1;
+      padding: 4px 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.2s;
+      justify-self: center;
+  
+      &:hover {
+        background: $color-1;
+      }
+    }
+.pokemons {
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1600px;
+    padding: 0 200px;
+
+    
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    li {
+      margin: 10px;
+      width: 100px;
+      height: 100px;
+      border-radius: 20px;
+      background: url(../../../public/Battle-bg.jpg) center/cover;
+      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.307);
+      transition: 0.2s;
+      cursor: pointer;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}

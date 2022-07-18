@@ -27,6 +27,8 @@ require("./src/routes/deletePokemon")(app);
 require("./src/routes/PokemonList")(app);
 require("./src/routes/PokemonsData")(app);
 require("./src/routes/PokemonsFetch")(app);
+require("./src/routes/PokemonPost")(app);
 require("./src/routes/ShinyGenerator")(app);
+require("./src/routes/Items")(app);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

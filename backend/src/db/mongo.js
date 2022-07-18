@@ -5,9 +5,11 @@ const PokedexModel = require("../models/pokedexModel");
 const mockPokemons = require("./mock-pokemons");
 
 //pokemon infos
-const PokemonModels = require("../models/PokemonModels");
+const PokemonModels = require("../models/PokemonsModel");
 const Pokemons = require("./Pokemons");
-
+//Items infos
+const ItemsModel = require("../models/ItemsModel");
+const mockItems = require("./mock-items");
 mongoose
   .connect("mongodb://localhost:27017/pokedex", {
     useNewUrlParser: true,
@@ -40,6 +42,21 @@ function initiate() {
       }
     })
   );
+  //if one of the items quantity is 0 then update 0 to 10.
+  ItemsModel.find({}).then((items) => {
+    if (items.length !== 0) {
+      items.forEach((item) => {
+        if (item.quantity <= 0) {
+          ItemsModel.findOneAndUpdate(
+            { name: item.name },
+            { $set: { quantity: 10 } }
+          ).then((item) => {
+            console.log("you found 10 " + item.name);
+          });
+        }
+      });
+    }
+  });
 }
 
 initiate();

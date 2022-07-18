@@ -1,11 +1,8 @@
 const ApiModel = require("../models/PokemonsModel");
-axios = require("axios");
-
-// use axios to fetch pokemons from database
 
 module.exports = (app) => {
-  app.get("/api/pokemons/fetch", async (req, res) => {
-    ApiModel.find({})
+  app.post("/api/pokemons/fetch", (req, res) => {
+    ApiModel.find({ ...req.body })
       .sort({ id: 1 })
       .then((pokemons) => {
         res.json(pokemons);

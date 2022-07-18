@@ -1,23 +1,22 @@
-const ApiModel = require("../models/ApiModel");
+const ApiModel = require("../models/PokemonsModel");
 const pokemonfetch = require("../routes/PokemonsFetch");
 
 module.exports = (app) => {
-  app.get("/api/pokemons/randomizer", async (req, res, next) => {
+  app.post("/api/pokemons/randomizer", async (req, res, next) => {
     for (let i = 1; i <= 151; i++) {
+      var picture = Math.floor(Math.random() * 151) + 1;
       var shiny = null;
-      var picture = Math.floor(Math.random() * 150) + 1;
-      if (picture < 135) {
+      if (picture < 150) {
         picture =
           "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" +
           i +
           ".png";
-        shiny = null;
       } else {
         picture =
           "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/" +
           i +
           ".png";
-        shiny = "Shiny !";
+        shiny = "Shiny";
       }
 
       ApiModel.findOneAndUpdate(
@@ -25,7 +24,7 @@ module.exports = (app) => {
         { picture: picture, shiny: shiny }
       ).then(console.log("pokemon n°" + i + "updated"));
     }
-    ApiModel.find({}).then((pokemons) => {
+    ApiModel.find({ ...req.body }).then((pokemons) => {
       res.json(pokemons);
     });
   });
