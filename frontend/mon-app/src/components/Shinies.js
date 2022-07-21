@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Card from "./Card";
+import Card from "./PokemonCard";
 
 const Pokemons = () => {
   const ShinyReq = {

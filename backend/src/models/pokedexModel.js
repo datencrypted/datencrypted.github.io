@@ -12,8 +12,16 @@ const pokemonSchema = mongoose.Schema(
       type: String,
       require: false,
     },
+    shiny: {
+      type: Boolean,
+      require: false,
+    },
     types: {
       type: Array,
+      require: false,
+    },
+    catched: {
+      type: Boolean,
       require: false,
     },
   },

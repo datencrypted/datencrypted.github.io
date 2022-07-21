@@ -16,26 +16,16 @@ module.exports = (app) => {
                 const pokemon = await response.data;
                 const name = pokemon.names[4].name;
                 const id = pokemon.id;
-                var shiny = null;
-                var picture = Math.floor(Math.random() * 150) + 1;
-                if (picture < 150) {
-                  picture =
-                    "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" +
-                    id +
-                    ".png";
-                  shiny = null;
-                } else {
-                  picture =
-                    "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/" +
-                    id +
-                    ".png";
-                  shiny = "Shiny !";
-                }
+                var picture =
+                  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" +
+                  id +
+                  ".png";
                 const pokemondata = {
                   name: name,
                   id: id,
                   picture: picture,
-                  shiny: shiny,
+                  shiny: false,
+                  catched: false,
                 };
                 const newPokemon = pokemondata;
 
@@ -49,17 +39,6 @@ module.exports = (app) => {
 
                     const pokemon = response.data;
                     const id = pokemon.id;
-                    // function selectProps(...pokemon) {
-                    //   return function (obj) {
-                    //     const newObj = {};
-                    //     pokemon.forEach((name) => {
-                    //       newObj[name] = obj[name];
-                    //     });
-
-                    //     return newObj;
-                    //   };
-                    // }
-                    // const types = selectProps("types")(pokemon);
                     const types = pokemon.types.map((type) => type.type.name);
                     const pokemondata = {
                       id: id,

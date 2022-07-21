@@ -18,9 +18,9 @@ app
   .use(bodyParser.json());
 
 // ROUTES utilisées par app (express)
-
+require("./src/routes/capturepokedex")(app);
 require("./src/routes/Pokedex")(app);
-require("./src/routes/findOnePokemon")(app);
+require("./src/routes/WildEncounter")(app);
 require("./src/routes/catchPokemon")(app);
 require("./src/routes/updatePokemon")(app);
 require("./src/routes/deletePokemon")(app);

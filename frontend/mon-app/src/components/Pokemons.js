@@ -1,14 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Card from "./Card";
+import Card from "./PokemonCard";
 
 const Pokemons = () => {
   const [data, setData] = useState([]);
-  const ClickHandler = () => {
-    axios.post("http://localhost:3001/api/pokemons/randomizer").then((res) => {
-      setData(res.data);
-    });
-  };
   // Le use effect se joue lorsque le composant est monté.
   useEffect(() => {
     axios.get("http://localhost:3001/api/pokemons/fetch").then((res) => {
@@ -18,7 +13,6 @@ const Pokemons = () => {
   }, []);
   return (
     <>
-      <button onClick={ClickHandler}>Shiny Randomizer</button>
       <div className="pokemons">
         <ul>
           {data

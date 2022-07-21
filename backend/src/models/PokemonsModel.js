@@ -13,11 +13,15 @@ const pokemonSchema = mongoose.Schema(
       require: false,
     },
     shiny: {
-      type: String,
+      type: Boolean,
       require: false,
     },
     types: {
       type: Array,
+      require: false,
+    },
+    catched: {
+      type: Boolean,
       require: false,
     },
   },

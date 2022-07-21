@@ -22,10 +22,7 @@ function initiate() {
   PokedexModel.find({}).then(
     (pokedex) => {
       if (pokedex.length === 0) {
-        mockPokemons.forEach((pokemon) => {
-          PokedexModel.create(pokemon);
-        });
-        console.log("Pokedex filled with mock data");
+        console.log("You don't have ay Pokemons in your Pokedex");
       } else {
         console.log("Pokedex already initiated");
       }
@@ -55,6 +52,11 @@ function initiate() {
           });
         }
       });
+    } else {
+      mockItems.forEach((item) => {
+        ItemsModel.create(item);
+      });
+      console.log("ItemsModel filled with mock data");
     }
   });
 }

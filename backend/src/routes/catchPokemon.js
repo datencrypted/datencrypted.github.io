@@ -3,20 +3,23 @@ const Pokemons = require("../models/PokemonsModel");
 const axios = require("axios");
 const Items = require("../models/ItemsModel");
 const { response } = require("express");
-const ItemsModel = require("../models/ItemsModel");
+
 // create a new pokemon
 
 // post method to add pokemon to database (createPokemon)
 module.exports = (app) => {
   app.post("/api/pokemons/catch/:id", (req, res) => {
     const pokeball = req.body.pokeball;
-    console.log(pokeball);
-    ItemsModel.findOne({ name: pokeball }).then((item) => {
+    console.log(req.body);
+    const shiny = req.body.shiny;
+    Items.findOne({ name: pokeball }).then((item) => {
       if (item.quantity > 0) {
-        ItemsModel.findOneAndUpdate(
+        Items.findOneAndUpdate(
           { name: pokeball },
           { quantity: item.quantity - 1 }
-        );
+        ).then((item) => {
+          console.log("you used one " + item.name);
+        });
 
         var n = 0;
         switch (pokeball) {
@@ -35,21 +38,28 @@ module.exports = (app) => {
           default:
             n = Math.floor(Math.random() * 255) + 1;
             break;
-        } // end switch
-        console.log(n);
+        }
         axios
           .get(
             "https://pokeapi.co/api/v2/pokemon-species/" + req.params.id + "/"
           )
           .then((response) => {
-            console.log(response.data.capture_rate);
             if (n < response.data.capture_rate) {
               const message = "You caught a " + response.data.name + "!";
               const { id } = req.params;
               Pokemons.findOne({ id: id })
                 .then((pokemon) => {
-                  Pokedex.create({ name: pokemon.name, url: pokemon.url });
-                  res.json({ message: message, pokemon });
+                  const newPokemon = {
+                    name: pokemon.name,
+                    id: pokemon.id,
+                    picture: pokemon.picture,
+                    shiny: shiny,
+                    types: pokemon.types,
+                    catched: true,
+                  };
+                  Pokedex.create(newPokemon).then((pokemon) => {
+                    res.json({ message: message, pokemon });
+                  });
                 })
                 .catch((err) => {
                   res.json(err);
