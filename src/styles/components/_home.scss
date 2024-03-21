@@ -1,0 +1,16 @@
+.home{
+    @media(max-width:599px){
+        background-color:#37393b;
+    }
+    
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}

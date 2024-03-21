@@ -1,0 +1,59 @@
+@font-face {
+  font-family: "font-1";
+  src: url(../assets/fonts/JosefinSans-Medium.ttf);
+}
+
+$font-1: "font-1", sans-serif;
+
+$color-1: #61dafb;
+$color-2: salmon;
+$color-3: #282c34;
+$col_pokemon: #FFDE00;
+$white: rgb(243, 243, 243);
+$grey: rgb(200, 200, 200);
+$blue: rgb(0, 0, 255);
+$dark-blue: rgb(0, 0, 128);
+
+
+@mixin verticalCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+  @media(max-width:599px){
+    color:$white;
+  }
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {display:flex;
+  justify-content:center;
+  background-image: url(../../public/gen_background.webp);
+  background-size: contain;
+  font-family: $font-1;
+  min-height:100vh;
+  // @include verticalCenter;
+}
+li {
+  list-style-type: none;
+}
+
+  #root{
+  height:inherit;
+    background-color :rgb(255, 255, 255);
+    width:80%;
+     @media(max-width:599px){
+      background: #37393b;
+      width:100%;
+    }
+    padding:10px;
+  }
+
+
+
+
+

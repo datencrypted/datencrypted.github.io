@@ -1,0 +1,84 @@
+.Encounter {
+  display: flex;;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: auto;
+  margin: 20px 20px;
+}
+.Items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 50px, 20px;
+    width: 100%;
+    
+    ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    margin: 20px 20px;
+  }
+#pokeball{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0px 20px;
+  }
+  li {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: row;
+    margin: 25px, 10px;
+    width: 100px;
+  }
+  p {
+      font-size: 1em;
+      margin: 25px, 10px;
+    }
+}
+.Wild_Pokemon {  
+  background-image: url(../../../public/Battle-bg.jpg);
+  border-radius: 10px;
+  background-size: contain;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  padding: 5px 0px;
+  width:80%;
+  height:160px;
+
+  @media (max-width: 599px) {
+    background-position: bottom;
+    background-size:cover;
+    // min-width:235px;
+    height:auto;
+  }
+  
+  .info{
+    h2{
+      @media (max-width: 599px) {
+        color:black;
+      }
+    }
+    display:flex;
+    img{max-width:25px;
+    max-height: 25px;;}
+    }
+   
+
+
+  .pokemon_image{
+    position:relative;
+    bottom:-5px;
+      width:96px;
+      height:96px;
+    }
+
+}

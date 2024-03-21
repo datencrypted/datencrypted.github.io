@@ -1,0 +1,15 @@
+
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION BEGIN
+PassengerAppRoot "/home/mofa5150/pokeapp"
+PassengerBaseURI "/"
+PassengerNodejs "/home/mofa5150/nodevenv/pokeapp/16/bin/node"
+PassengerAppType node
+PassengerStartupFile app.js
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION END
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-SSL} !on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+

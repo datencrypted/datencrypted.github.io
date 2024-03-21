@@ -1,0 +1,22 @@
+# o2switch pagespeed start / DO NOT REMOVE OR EDIT
+<IfModule pagespeed_module>
+ModPagespeed on
+ModPagespeedRewriteLevel PassThrough
+ModPagespeedEnableFilters add_head,canonicalize_javascript_libraries,collapse_whitespace,combine_css,combine_heads,extend_cache,recompress_images,hint_preload_subresources,lazyload_images,rewrite_javascript,move_css_above_scripts,move_css_to_head,insert_dns_prefetch,remove_comments,remove_quotes,rewrite_images,strip_image_meta_data,sprite_images
+</IfModule>
+# o2switch pagespeed end / DO NOT REMOVE OR EDIT
+
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION BEGIN
+PassengerAppRoot "/home/mofa5150/pokeapp"
+PassengerBaseURI "/"
+PassengerNodejs "/home/mofa5150/nodevenv/pokeapp/16/bin/node"
+PassengerAppType node
+PassengerStartupFile app.js
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION END
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-SSL} !on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+

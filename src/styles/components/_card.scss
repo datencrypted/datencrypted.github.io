@@ -1,0 +1,59 @@
+#pokemon_card{
+  margin:5px;
+  @media (max-width:599px){
+    width:120px;
+  }.info_pokemon{
+    img{
+      width:20px;
+      height:20px;
+    }
+      align-items: center;
+      height:20px;
+      display:flex;
+      flex-direction: row;
+      justify-content:center;
+    }
+
+  width:180px;
+  height: 130px;
+  
+}
+.card {
+  
+  position: relative;
+  height: auto;
+  width: 100%;
+  border-radius: 20px;
+  border : 1px solid #000;
+  transition: 0.3s;
+
+  background: url(../../../public/Battle-bg.jpg) center/cover;
+
+  &:hover .infos {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+
+  .infos {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: $white;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    opacity: 0;
+    transform: scaleY(0);
+    transition: 0.3s;
+  }
+  img {
+    height: fit-content;
+    width: fit-content;
+    object-fit: contain;
+    border-radius: 10px;
+  }
+}

@@ -1,0 +1,20 @@
+.logo {
+  @include verticalCenter;
+  display:block;
+  margin: 5px auto;
+  width: 150px;
+  height:auto;
+  border-radius: 20px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.307);
+  background: rgb(255,203,0);
+  background: linear-gradient(0deg, rgba(255,203,0,1) 0%, rgba(240,183,0,1) 100%);
+  a{
+    width:inherit;
+  }
+  img {
+    position:relative;
+    margin:0px auto;
+    width:150px;
+    height: fit-content;
+  }
+}
